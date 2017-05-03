@@ -38,8 +38,23 @@ class ViewController: UIViewController {
     }
     
     func checkMatchRequestStatus()  {
-        let status = defaults.dictionary(forKey: "matchStatus");
-        print("Match status \(status!)")
+        let matchStatus = defaults.dictionary(forKey: "matchStatus")!;
+        let status = matchStatus["status"] as! String
+        let msg = matchStatus["msg"] as! String
+        print("Match status \(status)")
+        
+        switch status{
+            case "pending":
+                activityIndicator(msg)
+            case "success":
+                if let activity = self.view.subviews.first(where: { $0 is UIVisualEffectView }) {
+                    activity.removeFromSuperview()
+                }
+                let vc = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+                self.navigationController?.pushViewController(vc, animated:true)
+            default:
+                print("We shouldn't be here")
+        }
     
     }
     
@@ -48,7 +63,6 @@ class ViewController: UIViewController {
         if let token = defaults.string(forKey: "deviceToken") {
             
             let apnsHost = plist!["ApnsProvider"]! as! String
-            print("APNS \(apnsHost)")
             
             var url = URLComponents()
             url.scheme = "https"
@@ -87,6 +101,31 @@ class ViewController: UIViewController {
             task.resume()
         }
     }
+    
+    private func activityIndicator(_ msg: String)  {
+        DispatchQueue.main.async    {
+            let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+            
+            let label = UILabel(frame: CGRect(x: 50, y: 0, width: 200, height: 46))
+            label.text = msg
+            label.font = UIFont.systemFont(ofSize:11, weight: UIFontWeightMedium)
+            label.textColor = UIColor.white
+            
+            effectView.frame = CGRect(x: self.view.frame.midX - label.frame.width/2, y: self.view.frame.midY - label.frame.height/2, width: 200, height: 46)
+            effectView.layer.cornerRadius = 15
+            effectView.layer.masksToBounds = true
+            
+            let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+            activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+            activityIndicator.startAnimating()
+            
+            effectView.addSubview(activityIndicator)
+            effectView.addSubview(label)
+            
+            self.view.addSubview(effectView)
+        }
+    }
+
     
     private func readPlist()     {
         if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
