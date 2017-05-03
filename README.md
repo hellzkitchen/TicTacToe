@@ -1,2 +1,3 @@
 # TicTacToe
-3D Tic Tac Toe Game
+Multi-player Tic Tac Toe Game using APNS
+
