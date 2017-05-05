@@ -80,48 +80,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image-Tic-Tac-Toe-Game.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-Vd-XEZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-Tic-Tac-Toe-Game.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-Vd-XEZ">
                                 <rect key="frame" x="0.0" y="146" width="375" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnC-24-Izi">
-                                <rect key="frame" x="259" y="405" width="100" height="100"/>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnC-24-Izi">
+                                <rect key="frame" x="259" y="161" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="VwL-WT-mDW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-Mk-kXc">
-                                <rect key="frame" x="137" y="283" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="b2Z-c1-Km7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-0e-jnI">
-                                <rect key="frame" x="259" y="160" width="100" height="100"/>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4s-0e-jnI">
+                                <rect key="frame" x="259" y="283" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="EdX-M9-n5D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDJ-TO-JJc">
-                                <rect key="frame" x="137" y="160" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="QxS-fL-cCZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYw-vf-GXe">
-                                <rect key="frame" x="137" y="405" width="100" height="100"/>
+                                <rect key="frame" x="137" y="410" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="wge-3V-y2M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMa-Ka-z4n">
+                                <rect key="frame" x="259" y="410" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="6G7-yM-I1K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19B-u1-sMO">
+                                <rect key="frame" x="16" y="161" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="13O-mH-e98"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDJ-TO-JJc">
+                                <rect key="frame" x="137" y="161" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="QxS-fL-cCZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iu-Yz-ds1">
@@ -132,37 +139,35 @@
                                     <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="NJJ-PC-nsJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMa-Ka-z4n">
-                                <rect key="frame" x="259" y="283" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="6G7-yM-I1K"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uno-ho-yut">
-                                <rect key="frame" x="16" y="405" width="100" height="100"/>
+                                <rect key="frame" x="16" y="410" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="k3R-dE-eXg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19B-u1-sMO">
-                                <rect key="frame" x="16" y="160" width="100" height="100"/>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-Mk-kXc">
+                                <rect key="frame" x="137" y="283" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="13O-mH-e98"/>
+                                    <action selector="action:" destination="Yig-7g-2fl" eventType="touchUpInside" id="b2Z-c1-Km7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HDv-Vd-XEZ" firstAttribute="leading" secondItem="eVY-82-q4x" secondAttribute="leading" id="Fi4-Mi-Njy"/>
+                            <constraint firstItem="O1v-VN-0Jd" firstAttribute="top" secondItem="HDv-Vd-XEZ" secondAttribute="bottom" constant="146" id="IZU-oR-5Eo"/>
+                            <constraint firstAttribute="trailing" secondItem="HDv-Vd-XEZ" secondAttribute="trailing" id="QDi-yY-wgJ"/>
+                            <constraint firstItem="HDv-Vd-XEZ" firstAttribute="top" secondItem="64z-nx-JyC" secondAttribute="bottom" constant="82" id="ZtA-Xu-COT"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7MA-sK-i4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1732" y="138.0809595202399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="odn-JV-1V2">

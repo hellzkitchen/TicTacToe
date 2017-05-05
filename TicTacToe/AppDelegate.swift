@@ -43,9 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         let json = userInfo as! [String: Any]
         let payload = json["payload"] as! [String: Any]
-        defaults.set(payload, forKey: "matchStatus")
-        NotificationCenter.default.post(name: Notification.Name("matchStatus"), object: nil)
+        let notificationType = payload["msgType"] as! String
+        defaults.set(payload, forKey: "notification")
         
+        if (notificationType == "pending match" || notificationType == "player assignment")   {
+            NotificationCenter.default.post(name: Notification.Name("matchStatus"), object: nil)
+            print("Type = \(notificationType)")
+        }
+        else    {
+            NotificationCenter.default.post(name: Notification.Name("move"), object: nil)
+        }
         completionHandler(UIBackgroundFetchResult.newData)
     }
     

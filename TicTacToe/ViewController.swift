@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         NotificationCenter.default.addObserver(self, selector: #selector(checkMatchRequestStatus), name: Notification.Name("matchStatus"), object: nil)
+        UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+        
         readPlist()
     }
 
@@ -38,42 +40,43 @@ class ViewController: UIViewController {
     }
     
     func checkMatchRequestStatus()  {
-        let matchStatus = defaults.dictionary(forKey: "matchStatus")!;
-        let status = matchStatus["status"] as! String
+        let matchStatus = defaults.dictionary(forKey: "notification")!;
+        let msgType = matchStatus["msgType"] as! String
         let msg = matchStatus["msg"] as! String
-        print("Match status \(status)")
+        print("Match status \(msgType)")
         
-        switch status{
-            case "pending":
+        switch msgType  {
+            case "pending match":
                 activityIndicator(msg)
-            case "success":
+            case "player assignment":
                 if let activity = self.view.subviews.first(where: { $0 is UIVisualEffectView }) {
                     activity.removeFromSuperview()
                 }
                 let vc = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
                 self.navigationController?.pushViewController(vc, animated:true)
+                vc.playerNum = Int(msg)!
+                vc.gameId = "\(matchStatus["gameId"]!)"
             default:
                 print("We shouldn't be here")
         }
-    
     }
     
     private func playerMatchRequest()  {
-        let defaults = UserDefaults.standard
+        
         if let token = defaults.string(forKey: "deviceToken") {
             
-            let apnsHost = plist!["ApnsProvider"]! as! String
+            defaults.set(plist!["ApnsProvider"]! as! String, forKey: "apnsHost")
             
             var url = URLComponents()
             url.scheme = "https"
-            url.host = apnsHost
+            url.host = defaults.string(forKey: "apnsHost")!
             url.path = "/requestplayermatch"
             
             var request = URLRequest(url: url.url!)
             
             let params: [String: Any] = [
                 "device_token": token,
-                "game": "TicTacToe"
+                "app": "TicTacToe"
             ]
             
             let body = try! JSONSerialization.data(withJSONObject: params)
@@ -87,7 +90,6 @@ class ViewController: UIViewController {
                     
                     // To do REVERT to 1-player
                 }
-                
                 if let httpResponse = response as? HTTPURLResponse {
                     print("STATUS \(httpResponse.statusCode)")
                     switch httpResponse.statusCode {
