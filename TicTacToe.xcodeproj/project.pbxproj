@@ -642,6 +642,7 @@
 				CODE_SIGN_ENTITLEMENTS = TicTacToe/TicTacToe.entitlements;
 				DEVELOPMENT_TEAM = 2Z9E2295JG;
 				INFOPLIST_FILE = TicTacToe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mjgnycserv.mg.TicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -657,6 +658,7 @@
 				CODE_SIGN_ENTITLEMENTS = TicTacToe/TicTacToe.entitlements;
 				DEVELOPMENT_TEAM = 2Z9E2295JG;
 				INFOPLIST_FILE = TicTacToe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mjgnycserv.mg.TicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";

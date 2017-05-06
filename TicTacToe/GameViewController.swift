@@ -24,15 +24,7 @@ class GameViewController: UIViewController {
         
         if playerNum == activePlayer   {
             print("It's your turn!")
-            if (gameState[sender.tag-1] == 0)  {
-                processMove(player: playerNum, tag: sender.tag)
-            }
-            else    {
-                return
-            }
-        }
-        else    {
-            return
+            processMove(player: playerNum, tag: sender.tag)
         }
     }
     
@@ -74,6 +66,9 @@ class GameViewController: UIViewController {
     
     private func processMove(player: Int, tag: Int)  {
         
+        if (gameState[tag-1] != 0 || player != activePlayer)  {
+            return
+        }
         let button = self.view.viewWithTag(tag) as! UIButton
         if (player == 1)    {
             button.setImage(UIImage(named: "TicTacToe_X.png"), for :UIControlState())
@@ -124,6 +119,9 @@ class GameViewController: UIViewController {
             gameStatus.addAction(UIAlertAction(title: "Ok", style: .default)    { _ in
                 self.gameActive = false
                 self.gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+                
+                // Tell APNS the game is over
+                self.endGame()
             })
             
             self.present(gameStatus, animated: true)
@@ -211,6 +209,41 @@ class GameViewController: UIViewController {
             })
             task.resume()
         }
+    }
+    
+    private func endGame()  {
+        if let token = defaults.string(forKey: "deviceToken") {
+            
+            var url = URLComponents()
+            url.scheme = "https"
+            url.host = defaults.string(forKey: "apnsHost")!
+            url.path = "/tictactoegameover"
+            
+            url.queryItems = [
+                URLQueryItem(name: "gameId", value: gameId)
+            ]
+            var request = URLRequest(url: url.url!)
+            
+            request.httpMethod = "GET"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                
+                if let error = error    {
+                    print("APNS Provider error!, \(error)")
+                }
+                if let httpResponse = response as? HTTPURLResponse {
+                    print("STATUS \(httpResponse.statusCode)")
+                    switch httpResponse.statusCode {
+                    case 200:
+                        print("endGame success")
+                    default:
+                        print("endGame failed", httpResponse.statusCode)
+                    }
+                }
+            })
+            task.resume()
+        }
+
     }
 
 }
