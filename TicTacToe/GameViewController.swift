@@ -20,8 +20,9 @@ class GameViewController: UIViewController {
     
     let diagRight = (CGPoint(x: 0, y: 0), CGPoint(x: 375, y: 375))
 
+
     @IBAction func action(_ sender: AnyObject) {
-        
+        print(sender.tag)
         if playerNum == activePlayer   {
             print("It's your turn!")
             processMove(player: playerNum, tag: sender.tag)
